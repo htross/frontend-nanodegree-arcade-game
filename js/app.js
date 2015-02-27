@@ -71,11 +71,15 @@ Player.prototype.update = function() {
 
         if(this.updateDirection == 'left' && this.x > 0) {
             this.x = this.x - RECTANGWIDTH;
-        } else if (this.updateDirection == 'right' && this.x < (4 * RECTANGWIDTH)) {
+        } else if(this.updateDirection == 'right' && this.x < (4 * RECTANGWIDTH)) {
             this.x = this.x + RECTANGWIDTH;
-        } else if (this.updateDirection == 'up' && (this.y - RECTANGHEIGHT) > 0) {
+        } else if(this.updateDirection == 'up' && (this.y - RECTANGHEIGHT) > 0) {
             this.y = this.y - RECTANGHEIGHT;
-        } else if (this.updateDirection == 'down' && this.y < (4 * RECTANGHEIGHT)) {
+        } else if(this.updateDirection == 'up' && (this.y - RECTANGHEIGHT) <= 0) {
+            //Won game, reset
+            player.x = PLAYERSTARTINGX;
+            player.y = PLAYERSTARTINGY;
+        } else if(this.updateDirection == 'down' && this.y < (4 * RECTANGHEIGHT)) {
             this.y = this.y + RECTANGHEIGHT;
         }
 
